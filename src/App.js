@@ -16,6 +16,11 @@ const App = () => {
       title: "How do we use React?",
       content: "Create component and put on what you like on em",
     },
+    {
+      title: "Is Github co pilot will replace our job as a programmer?",
+      content:
+        "it's a copilot, so it meant to help the programmer but not replace 'em",
+    },
   ];
 
   return (
