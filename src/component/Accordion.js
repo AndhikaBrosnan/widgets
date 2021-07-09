@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Search from "./Search";
 
 const Accordion = ({ items }) => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -28,12 +27,7 @@ const Accordion = ({ items }) => {
     );
   });
 
-  return (
-    // <div className="ui styled accordion">
-    //   {renderedItems}
-    //   </div>
-    <Search />
-  );
+  return <div className="ui styled accordion">{renderedItems}</div>;
 };
 
 export default Accordion;
