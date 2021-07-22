@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 
 const Search = () => {
-  const [term, setTerm] = useState("reactJs");
+  const [term, setTerm] = useState("");
   const [results, setResults] = useState([]);
 
   useEffect(() => {
@@ -60,6 +60,7 @@ const Search = () => {
         <div className="field">
           <label>Enter Search Term: </label>
           <input
+            placeholder="Input Wikipedia Search Term..."
             value={term}
             onChange={(e) => setTerm(e.target.value)}
             className="input"
