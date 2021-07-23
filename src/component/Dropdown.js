@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Dropdown = ({ options, selectedOption, setOption }) => {
+  const [open, setOpen] = useState(false);
+
   const renderedItems = options.map((option) => {
-    if (selectedOption.value == option.value) {
+    if (selectedOption.value === option.value) {
       return null;
     }
     return (
@@ -22,10 +24,15 @@ const Dropdown = ({ options, selectedOption, setOption }) => {
     <div className="ui form">
       <div className="field">
         <label className="label"> Select a Color</label>
-        <div className="ui selection dropdown">
+        <div
+          onClick={() => setOpen(!open)}
+          className={`ui selection dropdown ${open ? "visible active" : ""}`}
+        >
           <i className="dropdown icon"></i>
           <div className="text">{selectedOption.label}</div>
-          <div className="menu visible transition">{renderedItems}</div>
+          <div className={`menu ${open ? "visible transition" : ""}`}>
+            {renderedItems}
+          </div>
         </div>
       </div>
     </div>
