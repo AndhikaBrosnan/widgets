@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-// import Accordion from "./component/Accordion";
-// import Search from "./component/Search";
+import Accordion from "./component/Accordion";
+import Search from "./component/Search";
 import Dropdown from "./component/Dropdown";
+import Navbar from "./component/Navbar";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 const App = () => {
   const items = [
@@ -36,13 +38,28 @@ const App = () => {
 
   return (
     <div>
+      {/* starts of Browser Router */}
+      <BrowserRouter>
+        <Navbar />
+        <Switch>
+          <Route path="/" exact>
+            <Accordion items={items} />
+          </Route>
+          <Route path="/search" component={Search}></Route>
+          <Route path="/dropdown">
+            <Dropdown
+              options={options}
+              setOption={setOption}
+              selectedOption={option}
+            />
+          </Route>
+        </Switch>
+      </BrowserRouter>
+
+      {/* ends of Browser Router */}
+
       {/* <Accordion items={items} /> */}
       {/* <Search /> */}
-      <Dropdown
-        options={options}
-        setOption={setOption}
-        selectedOption={option}
-      />
     </div>
   );
 };
