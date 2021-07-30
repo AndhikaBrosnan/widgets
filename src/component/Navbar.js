@@ -1,24 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const [active, setActive] = useState("");
+  console.log("active:", active);
   return (
-    <div>
-      <div class="ui menu">
-        <div class="header item">
-          <Link to="/">Accordion</Link>
+    <div className="ui  segment">
+      <div className="ui  pointing secondary menu">
+        <div
+          className={`item ${active === "accordion" ? "header active" : ""}`}
+        >
+          <Link to="/" onClick={() => setActive("accordion")}>
+            Accordion
+          </Link>
         </div>
-
-        {/* <Link to="/search"> */}
-        <Link to="/search" class="item" href="/search">
-          {" "}
-          Wikipedia Search
-        </Link>
-        {/* </Link> */}
-        {/* <Link to="/dropdown"> */}
-        <Link to="/dropdown" class="item" href="/dropdown">
-          Dropdown
-        </Link>
+        <div className={`item ${active === "search" ? "header active" : ""}`}>
+          <Link to="/search" onClick={() => setActive("search")}>
+            Wikipedia Search
+          </Link>
+        </div>
+        <div className={`item ${active === "dropdown" ? "header active" : ""}`}>
+          <Link to="/dropdown" onClick={() => setActive("dropdown")}>
+            Dropdown
+          </Link>
+        </div>
       </div>
     </div>
   );
